@@ -11,7 +11,6 @@ async function OrderByName(token: any) {
       Authorization: token,
     },
   });
-  console.log(res);
 
   if (res.status === 401) {
     return res;
@@ -27,7 +26,6 @@ export async function GET(request: NextRequest) {
   const authorization = headersInstance.get("authorization");
   const res = await OrderByName(authorization);
   const result = await res.json();
-  console.log(result);
 
   try {
     if (res.status !== 401) {

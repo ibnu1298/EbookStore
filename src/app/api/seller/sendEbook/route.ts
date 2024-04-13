@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import { headers } from "next/headers";
-import { split } from "postcss/lib/list";
 
 const url = "https://baretstorewebapi.azurewebsites.net/api/Ebook/SendEbook";
 

@@ -3,8 +3,6 @@ import Image from "next/image";
 import { MdAddShoppingCart } from "react-icons/md";
 
 const CardEbook = ({ ebook }: { ebook: any }) => {
-  console.log(ebook);
-
   return (
     <div className=" flex flex-col bg-emerald-600 py-2 px-3 h-fit w-40 rounded-lg">
       {/* <div>{ebook.sku}</div> */}

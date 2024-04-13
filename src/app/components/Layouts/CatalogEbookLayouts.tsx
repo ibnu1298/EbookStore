@@ -4,7 +4,7 @@ import CardEbook from "../Fragments/Card/CardEbook";
 const getEbook = async (token: string) => {
   if (token != undefined) {
     const res = await fetch(
-      `${process.env.NEXT_URL_PUBLIC}/api/product/ebook/getEbookOrderByName`,
+      `https://baretstorewebapi.azurewebsites.net/api/Ebook/OrderByName`,
       {
         method: "GET",
         headers: {
@@ -26,11 +26,6 @@ const getEbook = async (token: string) => {
 };
 const CatalogEbookLayouts = async () => {
   const response = await getEbook("dwada");
-  console.log(response);
-  console.log(typeof response);
-  response.ebooks.map((ebook: any) => {
-    console.log(ebook.sku);
-  });
 
   return (
     <div className="flex justify-center flex-wrap gap-8 my-4 py-5  w-3/4 ">

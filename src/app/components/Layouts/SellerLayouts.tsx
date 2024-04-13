@@ -5,7 +5,7 @@ import TabelEbook from "../Fragments/Table/TabelEbook";
 const getEbook = async (token: string) => {
   if (token != undefined) {
     const res = await fetch(
-      `${process.env.NEXT_URL_PUBLIC}/api/product/ebook/getEbookOrderByName`,
+      `https://baretstorewebapi.azurewebsites.net/api/Ebook/OrderByName`,
       {
         method: "GET",
         headers: {
@@ -17,7 +17,6 @@ const getEbook = async (token: string) => {
     );
 
     const response = await res.json();
-    console.log(response);
 
     if (!response.isSucceeded) {
       return { response };
@@ -29,7 +28,6 @@ const getEbook = async (token: string) => {
 
 const SellerLayouts = async () => {
   const ebook = await getEbook("dwada");
-  console.log(ebook);
 
   return (
     <div className="flex gap-5 m-5 p-5 flex-col lg:flex-row">

@@ -67,7 +67,6 @@ export const options: NextAuthOptions = {
         }
 
         const getToken = await LoginAuth(email, password);
-        console.log(getToken);
 
         if (getToken.isSucceeded) {
           return getToken;
@@ -92,7 +91,6 @@ export const options: NextAuthOptions = {
             UsernameOrEmail: email,
           }),
         });
-        
 
         return res.json();
       }
@@ -119,8 +117,6 @@ export const options: NextAuthOptions = {
         picture: string,
         type: string
       ) {
-        console.log(id, firstName, lastName, email, userName, picture, type);
-
         const res = await fetch(urlLogin, {
           method: "POST",
           headers: {
@@ -136,26 +132,19 @@ export const options: NextAuthOptions = {
             type,
           }),
         });
-        console.log(res);
         const response = await res.json();
-        console.log(response);
 
         return response;
       }
 
       if (account?.provider === "credentials") {
         const decoded = jwtDecode<JwtDecodeCustom>(user.token);
-        console.log(decoded);
-
         const getUser = await GetUser(decoded?.username, user.token);
-        console.log(getUser);
 
         const image =
           getUser.urlImage != ""
             ? await CekImage(getUser.urlImage)
             : "/images/people/default.jpg";
-
-        console.log(getUser);
 
         token.id = getUser.id;
         token.email = getUser.email;
@@ -224,12 +213,9 @@ export const options: NextAuthOptions = {
         token.expToken != null ? token.expToken * 1000 : 0
       );
       const dateNow = new Date(Date.now());
-      console.log(dateExp.getTime() < dateNow.getTime());
-      console.log(dateExp.toLocaleDateString());
-      console.log(dateNow.toLocaleDateString());
+
       if (dateExp.getTime() < dateNow.getTime()) {
       }
-      console.log(token);
 
       return token;
     },

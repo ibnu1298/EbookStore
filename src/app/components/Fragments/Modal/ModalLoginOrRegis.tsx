@@ -1,7 +1,5 @@
 "use client";
 import React, { useState } from "react";
-import FormLogin from "../Form/FormLogin";
-import FormRegistrasi from "../Form/FormRegistrasi";
 
 const ModalLoginOrRegis = ({
   show,
@@ -12,8 +10,6 @@ const ModalLoginOrRegis = ({
   showModal?: any;
   login?: boolean;
 }) => {
-  console.log(login);
-
   return (
     <div
       className={`${show} flex item-center justify-center items-center overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-10   w-full md:inset-0 h-full backdrop-blur-sm bg-gray-900/70`}
@@ -42,7 +38,7 @@ const ModalLoginOrRegis = ({
             />
           </svg>
         </button>
-        <div className="p-10">{login ? <FormLogin /> : <FormRegistrasi />}</div>
+        <div className="p-10"></div>
       </div>
     </div>
   );

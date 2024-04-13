@@ -27,9 +27,6 @@ export default function withAuth(
         const decoded = jwtDecode<JwtDecodeCustom>(token?.token as string);
         var dateExp = new Date(decoded.exp != null ? decoded.exp * 1000 : 0);
         var dateNow = new Date(Date.now());
-        console.log(dateExp.getTime() < dateNow.getTime());
-        // console.log(dateExp.toLocaleDateString());
-        // console.log(dateNow.toLocaleDateString());
         if (dateExp.getTime() < dateNow.getTime()) {
         }
       }

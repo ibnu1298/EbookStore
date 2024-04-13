@@ -13,7 +13,6 @@ const Navbar = () => {
   const [login, setLogin] = useState(true);
   const [loginOrRegisModal, setLoginOrRegisModal] = useState("hidden");
   const pathName = usePathname();
-  console.log(session);
 
   useEffect(() => {
     if (pathName == "/register" || pathName == "/login") {
@@ -31,8 +30,6 @@ const Navbar = () => {
     }
   };
   const loginOrRegisFunc = (from: string) => {
-   
-
     loginOrRegisModal == "hidden"
       ? setLoginOrRegisModal("")
       : setLoginOrRegisModal("hidden");
@@ -45,11 +42,11 @@ const Navbar = () => {
   };
   return (
     <>
-      <ModalLoginOrRegis
+      {/* <ModalLoginOrRegis
         show={loginOrRegisModal}
         showModal={loginOrRegisFunc}
         login={login}
-      />
+      /> */}
       <nav
         className="mt-0 fixed z-10 top-0 flex justify-center bg-gray-900 text-white w-screen "
         hidden={hideNav}
@@ -61,7 +58,7 @@ const Navbar = () => {
           >
             Baret Store
           </a>
-          <div className=" flex xl:flex items-center space-x-1 gap-5">
+          {/* <div className=" flex xl:flex items-center space-x-1 gap-5">
             <div className="flex relative items-center">
               <button className=" hover:bg-slate-600 focus:bg-black rounded-full p-2">
                 <MdShoppingCart size={25} />
@@ -88,7 +85,7 @@ const Navbar = () => {
             >
               Logout
             </button>
-          </div>
+          </div> */}
         </div>
       </nav>
     </>

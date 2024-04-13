@@ -15,8 +15,6 @@ const FormSendEbook = () => {
     const name = event.currentTarget.name.value as string;
     const sku = event.currentTarget.sku.value as string;
     setEmailTo(email);
-    console.log(email);
-    console.log(sku);
 
     const sendEmailTo = await fetch("/api/seller/sendEbook", {
       method: "POST",
@@ -36,10 +34,6 @@ const FormSendEbook = () => {
     });
 
     const data = await sendEmailTo.json();
-    console.log(data);
-
-    console.log(data);
-    console.log(sendEmailTo);
 
     if (sendEmailTo.status == 200) {
       setNotif(true);

@@ -16,8 +16,6 @@ export default function DropdownNext() {
     useSession();
   const [show, setShow] = useState("");
 
-  console.log(session?.user.image);
-
   let image = "/images/people/default.jpg";
   if (session?.user.image != undefined) {
     image = session?.user.image as string;
