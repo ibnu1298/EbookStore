@@ -1,5 +1,4 @@
 "use client";
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Fragments/Navbar";
@@ -14,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark text-foreground bg-background">
       <SessionProvider>
         <body className={inter.className}>
           <Navbar />

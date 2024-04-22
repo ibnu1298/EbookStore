@@ -25,7 +25,7 @@ const TabelEbook = ({ data }: { data: any }) => {
 
   return (
     <div className="md:w-[800px] w-full bg-gray-700/50 px-9 rounded-lg backdrop-blur-sm">
-      <div className="flex flex-col gap-5 py-9">
+      <div className="flex flex-col gap-3 py-9">
         {" "}
         <div className="flex flex-col gap-2 md:w-72">
           <div className="text-start text-white">
@@ -49,6 +49,9 @@ const TabelEbook = ({ data }: { data: any }) => {
             </div>
           </div>
         </div>
+        <div className="text-white">
+          Show {orderByName ? filterSKU.length : filterEbookName.length} item
+        </div>
         <table className="text-white">
           <thead className="bg-gray-700/50  text-lg">
             <tr>
@@ -59,7 +62,7 @@ const TabelEbook = ({ data }: { data: any }) => {
           <tbody>
             {!orderByName ? (
               <>
-                {filterEbookName.slice(0, 10).map((ebook: any) => (
+                {filterEbookName.slice(0, 20).map((ebook: any) => (
                   <tr key={ebook.id}>
                     <td className="text-center border-2 p-2">{ebook.sku}</td>
                     <td className="border-2 p-2">{ebook.ebookName}</td>
@@ -68,7 +71,7 @@ const TabelEbook = ({ data }: { data: any }) => {
               </>
             ) : (
               <>
-                {filterSKU.slice(0, 10).map((ebook: any) => (
+                {filterSKU.slice(0, 20).map((ebook: any) => (
                   <tr key={ebook.id}>
                     <td className="text-center border-2 p-2 ">{ebook.sku}</td>
                     <td className=" border-2 p-2">{ebook.ebookName}</td>

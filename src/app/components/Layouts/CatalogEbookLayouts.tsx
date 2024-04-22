@@ -1,39 +1,30 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import CardEbook from "../Fragments/Card/CardEbook";
+import PaginationNextUI from "../Elements/Pagination/PaginationNextUI";
+import { usePathname } from "next/navigation";
 
-const getEbook = async (token: string) => {
-  if (token != undefined) {
-    const res = await fetch(
-      `https://baretstorewebapi.azurewebsites.net/api/Ebook/OrderByName`,
-      {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        cache: "no-store",
-      }
-    );
-
-    const response = await res.json();
-
-    if (!response.isSucceeded) {
-      return { response };
-    }
-
-    return response;
-  }
-};
-const CatalogEbookLayouts = async () => {
-  const response = await getEbook("dwada");
+const CatalogEbookLayouts = ({ ebooks }: { ebooks: any }) => {
+  const [itemPerPage, setItemPerPage] = useState(20);
+  const [page, setPage] = useState(1);
+  const [skip, setSkip] = useState((page - 1) * itemPerPage);
+  console.log(itemPerPage);
+  console.log(skip);
+  console.log(page);
+  const pathname = usePathname();
+  console.log(pathname);
 
   return (
-    <div className="flex justify-center flex-wrap gap-8 my-4 py-5  w-3/4 ">
-      {response.ebooks.map((ebook: any) => (
-        <>
-          <CardEbook ebook={ebook} />
-        </>
-      ))}
+    <div className="flex justify-center flex-col items-center my-4 py-5 gap-8">
+      <div>Cari</div>
+      <div className="flex justify-center flex-wrap gap-2  w-3/4 ">
+        {ebooks.slice(skip, itemPerPage + skip).map((ebook: any) => (
+          <div key={ebook.sku}>
+            <CardEbook ebook={ebook} />
+          </div>
+        ))}
+      </div>
+      <PaginationNextUI />
     </div>
   );
 };
