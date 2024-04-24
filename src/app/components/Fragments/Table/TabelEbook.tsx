@@ -62,7 +62,7 @@ const TabelEbook = ({ data }: { data: any }) => {
           <tbody>
             {!orderByName ? (
               <>
-                {filterEbookName.slice(0, 5).map((ebook: any) => (
+                {filterEbookName.slice(0, 10).map((ebook: any) => (
                   <tr key={ebook.id}>
                     <td className="text-center border-2 p-2">{ebook.sku}</td>
                     <td className="border-2 p-2">{ebook.ebookName}</td>
@@ -71,7 +71,7 @@ const TabelEbook = ({ data }: { data: any }) => {
               </>
             ) : (
               <>
-                {filterSKU.slice(0, 5).map((ebook: any) => (
+                {filterSKU.slice(0, 10).map((ebook: any) => (
                   <tr key={ebook.id}>
                     <td className="text-center border-2 p-2 ">{ebook.sku}</td>
                     <td className=" border-2 p-2">{ebook.ebookName}</td>
