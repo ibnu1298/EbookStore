@@ -10,6 +10,7 @@ const FormSendEbook = () => {
     "text-md text-white rounded-lg  w-full p-2.5 bg-black/20 border-2 border-white  backdrop-blur-sm  py-2 px-3 placeholder:text-white";
   const handleSendEbook = async (event: any) => {
     let skuNotFound;
+    setNotif(false);
     event.preventDefault();
     const email = event.currentTarget.email.value as string;
     const name = event.currentTarget.name.value as string;
@@ -43,9 +44,6 @@ const FormSendEbook = () => {
       setNotif(true);
       setNotifSuccess(false);
     }
-    setTimeout(() => {
-      setNotif(false);
-    }, 10000);
   };
   return (
     <div className="flex flex-col gap-5 w-96  ">
