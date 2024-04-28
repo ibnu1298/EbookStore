@@ -43,6 +43,9 @@ const FormSendEbook = () => {
       setNotif(true);
       setNotifSuccess(false);
     }
+    setTimeout(() => {
+      setNotif(false);
+    }, 1500);
   };
   return (
     <div className="flex flex-col gap-5 w-96  ">
