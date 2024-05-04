@@ -5,6 +5,7 @@ const FormSendEbook = () => {
   const [notif, setNotif] = useState(false);
   const [notifSuccess, setNotifSuccess] = useState(false);
   const [message, setMessage] = useState("");
+  let valueEmail = "";
   const [emailTo, setEmailTo] = useState("");
   const classNameInput =
     "text-md text-white rounded-lg  w-full p-2.5 bg-black/20 border-2 border-white  backdrop-blur-sm  py-2 px-3 placeholder:text-white";
